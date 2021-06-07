@@ -8,7 +8,7 @@ import { SignIn, SignInSuccessfully, SignUp, SignUpSuccessfully } from '../actio
 @Injectable()
 export class UserEffects {
   signIn$ = createEffect(() => this.actions$.pipe(
-    ofType(SignIn, SignUp),
+    ofType(SignIn),
     exhaustMap((actions: any) => this.user.SignIn(actions.payload.mail, actions.payload.password)
       .pipe(
         map(user => {
@@ -18,7 +18,6 @@ export class UserEffects {
         catchError(() => EMPTY)
       ))
     ),
-    { dispatch: false }
   )
 
   signUp$ = createEffect(() => this.actions$.pipe(
@@ -32,7 +31,6 @@ export class UserEffects {
         catchError(() => EMPTY)
       ))
     ),
-    { dispatch: false }
   )
 
   // updateUser$ = createEffect(() => this.actions$.pipe(
