@@ -1,1 +1,84 @@
-<p>register-page works!</p>
+<div class="register">
+  <h1 class="register-heading">Регистрация</h1>
+  <form class="register__form" (submit)="register($event)" [formGroup]="registerForm">
+    <div class="register__form-field-container">
+      <mat-form-field class="register__form-field" appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="name"
+          placeholder="Имя"
+        />
+        <mat-error *ngIf="registerForm.controls.name.hasError('required')">
+          Имя <strong>обязательно</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register__form-field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Email"
+        />
+        <mat-error
+          *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')"
+        >
+          Введите валидный email
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls.email.hasError('required')">
+          Email <strong>обязателен</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register__form-field" appearance="outline">
+        <mat-label>Пароль</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Пароль"
+          (input)="checkPasswordInput()"
+        />
+        <mat-error
+          *ngIf="registerForm.controls.password.hasError('pattern')"
+        >
+          Пароль должен быть минимум 8 символов и включать в себя одну прописную, одну строчную букву, одну цифру
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls.password.hasError('required')">
+          Пароль <strong>обязателен</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register__form-field" appearance="outline">
+        <mat-label>Подтвердите пароль</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="confirmPassword"
+          placeholder="Подтвердите пароль"
+          (input)="checkPasswordInput()"
+        />
+        <mat-error
+          *ngIf="registerForm.controls.confirmPassword.hasError('required')"
+        >
+          Введите еще раз пароль
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls.confirmPassword.dirty && registerForm.hasError('confirmError')">
+          Пароли должны <strong>совпадать</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <button type="submit" mat-stroked-button color="primary" [disabled]="registerForm.invalid">
+        Зарегистрироваться
+      </button>
+    </div>
+   </form>
+
+   <div class="register__text">
+    <span>Есть аккаунт?</span>
+    <a class="register__text-link" routerLink="/auth/login">Войти</a>
+  </div>
+</div>

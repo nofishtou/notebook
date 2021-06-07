@@ -1,1 +1,23 @@
-<p>create-notice-page works!</p>
+<div class="create-notice__container">
+  <form class="create-notice__form" [formGroup]="noticeForm" (ngSubmit)="submitHandler()" novalidate>
+    <mat-form-field class="create-notice-half-width">
+      <mat-label>Заголовок</mat-label>
+      <input matInput placeholder="Введите заголовок" formControlName="title">
+      <mat-error class="create-notice-error" *ngIf="noticeForm.controls['title'].hasError('required')">
+        Заголовок <strong>обязателен</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="create-notice-half-width">
+      <mat-label>Текст Записи</mat-label>
+      <textarea matInput placeholder="Введите текст записи" formControlName="description" class="create-notice-height"></textarea>
+      <mat-error class="create-notice-error" *ngIf="noticeForm.controls['description'].hasError('required')">
+        Текст записи <strong>обязателен</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button class="create-notice-btn create-notice-quarter-width" type="submit" mat-stroked-button color="primary" [disabled]="noticeForm.invalid">
+      Добавить запись
+    </button>
+  </form>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoticesService } from '../../services/notices.service';
 
 @Component({
   selector: 'app-notices-page',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notices-page.component.scss']
 })
 export class NoticesPageComponent implements OnInit {
+  notices;
 
-  constructor() { }
+  constructor(private noticesService: NoticesService) { }
 
   ngOnInit(): void {
+    this.notices = this.noticesService.getNotices()
+    console.log(this.noticesService.getNotices());
   }
 
+  getNotice() {
+
+  }
+
+  deleteNotice() {
+
+  }
 }

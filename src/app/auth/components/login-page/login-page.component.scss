@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  min-height: calc(100vh - 7rem);
+}
+
+.login-heading {
+  text-align: center;
+}
+
+.login {
+  margin: 0 auto;
+  padding: 75px 0  0;
+}
+
+.login__form-field-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.login__form-field {
+  width: 100%;
+}
+
+.login__text {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.login__text-link {
+  padding-left: 15px;
+}

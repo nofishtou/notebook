@@ -11,8 +11,17 @@
         <mat-slide-toggle> </mat-slide-toggle>
         <mat-icon class="toggle-icon"> dark_mode </mat-icon>
       </div>
-      <div>
-        <span class="header-nav__link">Вход</span>
+      <div *ngIf="!isLoginPage && !user">
+        <span class="header-nav__link">
+          <a routerLink="/auth/login" routerLinkActive="active" class="header-nav__link">Вход</a>
+        </span>
+      </div>
+      <div *ngIf="!isLoginPage && user">
+        <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
       </div>
     </div>
   </div>

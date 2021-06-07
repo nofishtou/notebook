@@ -4,3 +4,36 @@
     url("../../../../assets/img/bg-elements-1.svg");
   min-height: calc(100vh - 7rem);
 }
+
+.create-notice__container {
+  margin: 0 auto;
+  padding: 120px 40px 0;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .create-notice__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .create-notice-half-width {
+      width: 50%;
+    }
+
+    .create-notice-quarter-width {
+      width: 25%;
+    }
+
+    .create-notice-height {
+      min-height: 200px;
+    }
+
+    .create-notice-btn {
+      margin-top: 1rem;
+    }
+  }
+}
+
+

@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  background: url("../../../../assets/img/bg-elements-3.svg"),
+    url("../../../../assets/img/bg-elements-1.svg");
+  min-height: calc(100vh - 7rem);
+}
+
+.notice__container {
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notice-card {
+  min-width: 200px;
+  min-height: 100px;
+}

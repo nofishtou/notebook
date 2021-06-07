@@ -4,3 +4,29 @@
     url("../../../../assets/img/bg-elements-1.svg");
   min-height: calc(100vh - 7rem);
 }
+
+.notices__container {
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .notices__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .notices__list-item-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .notices__list-item-heading {
+    display: inline-block;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

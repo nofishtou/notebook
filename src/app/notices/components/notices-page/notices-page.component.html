@@ -1,1 +1,14 @@
-<p>notices-page works!</p>
+<div class="notices__container">
+  <ol>
+    <li *ngFor='let notice  of notices; index as i' class="notices__list-item">
+      <span class="notices__list-item-body">
+        <span>{{i + 1}}</span>
+        <a [routerLink]="['notice', notice.id ]" routerLinkActive="active"
+          class="notices__list-item-heading">
+          {{notice.title}}
+        </a>
+      </span>
+      <button mat-button color="accent">delete</button>
+    </li>
+  </ol>
+</div>

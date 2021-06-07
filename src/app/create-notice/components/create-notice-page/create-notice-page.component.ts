@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CreateNoticeService } from '../../services/create-notice.service';
 
 @Component({
   selector: 'app-create-notice-page',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-notice-page.component.scss']
 })
 export class CreateNoticePageComponent implements OnInit {
-
-  constructor() { }
+  noticeForm : FormGroup;
+  constructor(private createNoticeService: CreateNoticeService){
+      this.noticeForm = new FormGroup(
+        {
+          "title": new FormControl("", [
+            Validators.required
+          ]),
+          "description": new FormControl("", [
+            Validators.required,
+          ]),
+        }
+      );
+  }
 
   ngOnInit(): void {
   }
 
+  submitHandler(){
+    console.log(this.noticeForm.value);
+    this.createNoticeService.createNotice(this.noticeForm.value);
+  }
 }

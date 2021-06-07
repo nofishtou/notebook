@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  min-height: calc(100vh - 7rem);
+}
+.register {
+  margin: 0 auto;
+  padding: 75px 0  0;
+}
+
+.register-heading {
+  text-align: center;
+}
+
+.register__form-field-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.register__form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.register__text {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.register__text-link {
+  padding-left: 15px;
+}
